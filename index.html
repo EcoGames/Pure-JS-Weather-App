@@ -1,26 +1,44 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+<!DOCTYPE html>
 
-        <div id="searchContainer">
-            <input class="searchControl" type="text" placeholder="City Name or Zipcode" id="searchInput">
-            <button class="searchControl" id="searchBtn">Search</button>
-        </div>
-        <div id="weatherContainer">
-            <div id="weatherDescription">
-                <h1 id="cityHeader"></h1>
-                <div id="weatherMain">
-                    <div id="temperature"></div>
-                    <div id="weatherDescriptionHeader"></div>
-                    <div><img id="documentIconImg"></div>
-                </div>
-                <hr>
-                <div id="windSpeed" class="bottomDetails"></div>
-                <div id="humidity" class="bottomDetails"></div>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get the weather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato|Noto+Sans|Open+Sans|PT+Sans|Poppins|Raleway|Source+Sans+Pro|Ubuntu&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="searchContainer">
+        <!-- <input class="searchControl" type="text" placeholder="City Name or Zipcode" id="searchInput"> -->
+        <input placeholder="City Name or Zip" type="search" class="searchControl" id="searchInput">
+        <i onclick="searchBtnClicked()" class="fa fa-search"></i>
+    </div>
+
+    <div id="weatherContainer">
+        <div id="weatherDescription">
+            <h1 id="cityHeader"></h1>
+            <div id="weatherMain">
+                <div id="temperature"></div>
+                <div id="weatherDescriptionHeader"></div>
+                <div><img id="documentIconImg"></div>
             </div>
+            <hr>
+            <div id="windSpeed" class="bottomDetails"></div>
+            <div id="humidity" class="bottomDetails"></div>
         </div>
-        <script src="script.js"></script>
-    </body>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
 </html>

@@ -2,6 +2,16 @@ let appID = '23a04501fa52087b64f0d93e3b22207f';
 let units = 'imperial';
 let searchMethod;
 
+var searchInput;
+onload = function () {
+    searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('keyup', (e) => {
+        if (e.keyCode === 13) {
+            if (searchInput.value) searchWeather(searchInput.value);
+        }
+    });
+}
+
 function getSearchMethod(searchTerm) {
     if (searchTerm.length === 5 && Number.parseInt(searchTerm) + '' === searchTerm)
         searchMethod = 'zip';
@@ -53,7 +63,7 @@ function init(resultFromServer) {
     let weatherIcon = document.getElementById('documentIconImg');
 
     weatherIcon.src = 'https://openweathermap.org/img/w/' + resultFromServer.weather[0].icon + '.png'
-    
+
     let resultDescription = resultFromServer.weather[0].description;
     weatherDescriptionHeader.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
 
@@ -61,7 +71,7 @@ function init(resultFromServer) {
     windSpeedElement.innerHTML = 'Winds at ' + Math.floor(resultFromServer.wind.speed * 2.237) + ' mph';
     cityHeader.innerHTML = resultFromServer.name;
     humidityElement.innerHTML = 'Humidity levels at ' + resultFromServer.main.humidity + '%';
-    
+
     setPosForWeatherInfo();
 }
 
@@ -75,8 +85,8 @@ function setPosForWeatherInfo() {
     weatherContainer.style.visibility = `visible`;
 }
 
-document.getElementById('searchBtn').addEventListener('click', () => {
+function searchBtnClicked() {
     let searchTerm = document.getElementById('searchInput').value;
     if (searchTerm)
         searchWeather(searchTerm);
-})
+}
